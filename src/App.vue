@@ -1,15 +1,7 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
-  <div 
-    :style="{ color: $store.state.colorCode }"
-    class="counter">
-    {{ $store.state.counter }}
-  </div>
-  <div class="counter-squared">
-    {{ $store.state.counter }}
-    <sup>2</sup> = 
-    {{ $store.getters.counterSquared }}
-  </div>
+  <myCounter />
+  <counterSquare />
   <div class="buttons">
     <button @click="$store.dispatch('decreaseCounter')">-</button>
     <button @click="$store.dispatch('increaseCounter')">+</button>
@@ -35,6 +27,10 @@ export default {
         this.$store.commit('setColorCode', newValue);
       }
     }
+  },
+  components: {
+    'myCounter': require('@/components/MyCounter.vue').default,
+    'counterSquare': require('@/components/CounterSquared.vue').default,
   }
 }
 </script>
