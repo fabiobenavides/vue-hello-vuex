@@ -6,12 +6,7 @@
     <button @click="$store.dispatch('decreaseCounter')">-</button>
     <button @click="$store.dispatch('increaseCounter')">+</button>
   </div>
-  <div>
-    <input 
-      v-model="colorCode"
-      placeholder="Enter color code"
-      type="text">
-  </div>
+  <colorCode />
 </template>
 
 <script>
@@ -31,6 +26,7 @@ export default {
   components: {
     'myCounter': require('@/components/MyCounter.vue').default,
     'counterSquare': require('@/components/CounterSquared.vue').default,
+    'colorCode': require('@/components/ColorCode.vue').default
   }
 }
 </script>
