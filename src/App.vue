@@ -1,15 +1,30 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="counter">
+    {{ counter }}
+  </div>
+  <div class="buttons">
+    <button @click="decreaseCounter">-</button>
+    <button @click="increaseCounter">+</button>
+  </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
 
 export default {
   name: 'App',
-  components: {
-    HelloWorld
+  data() {
+    return {
+      counter: 0
+    }
+  },
+  methods: {
+    increaseCounter() {
+      this.counter++;
+    },
+    decreaseCounter() {
+      this.counter--;
+    }
   }
 }
 </script>
@@ -22,5 +37,17 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+div {
+  margin-bottom: 10px;
+}
+
+.counter {
+  font-size: 80px;
+}
+.buttons button {
+  font-size: 40px;
+  width: 100px;
 }
 </style>
